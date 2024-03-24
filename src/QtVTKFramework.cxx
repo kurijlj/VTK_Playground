@@ -91,8 +91,8 @@ const std::string kYearString = "yyyy";
 const std::string kAuthorName = "Ljubomir Kurij";
 const std::string kAuthorEmail = "ljubomir_kurij@protonmail.com";
 const std::string kAppDoc = "\
-Framework for developing command line applications using \'clipp\' command\n\
-line argument parsing library.\n\n\
+A lightweight C++ framework for creating graphical applications using the\n\
+Visualization Toolkit (VTK) for rendering and Qt for the user interface.\n\n\
 Mandatory arguments to long options are mandatory for short options too.\n";
 const std::string kLicense = "\
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n\

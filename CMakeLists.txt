@@ -78,7 +78,7 @@ endif (BUILD_SHARED_LIBS)
 
 
 # ----------------------------------------------------------------------------
-# Set the output directory for the executable
+# Set the output directory for the executables
 # ----------------------------------------------------------------------------
 
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -126,7 +126,8 @@ find_package(VTK
     ImagingGeneral
     InteractionImage
     InteractionStyle
-    InteractionWidgets)
+    InteractionWidgets
+)
 if (NOT VTK_FOUND)
   message("Terminating configuration: ${VTK_NOT_FOUND_MESSAGE}")
   return ()

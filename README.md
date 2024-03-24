@@ -11,7 +11,7 @@ Toolkit) library and the GoogleTest unit testing framework.
 
 ## Project Structure
 
-* **CMake:** Contains
+* **CMake:** Contains custom CMake scripts, mainly for `find_package` support.
 * **src:** Contains the source code for the VTK examples and unit tests.
 * **include:** (Optional) For any custom header files.
 * **tests:** (Optional) Dedicated directory for GoogleTest unit tests (if not
@@ -65,8 +65,34 @@ installed in the `./bin` of build directory.
 
 ## Available Build Targets
 
-1. **QtVTKFramework**: A minimal Qt VTK codebase for developing apps.
-2. **all**: Build all abovementioned targets.
+1. **QtVTKFramework**: A lightweight C++ framework for creating graphical
+   applications using the Visualization Toolkit (VTK) for rendering and Qt for
+   the user interface.
+
+   **Features:**
+   * UI creation with Qt Designer for a streamlined development process.
+   * Basic "Main Window" application structure with an about dialog.
+   * Eye-catching [Isometric icons](https://icons8.com/icons/isometric)
+     from [Icons8](https://icons8.com) for a polished look.
+   * Simple VTK rendering scene with standard event interaction (camera control
+     with mouse).
+   * Seamless integration of VTK events with Qt slots using
+     `vtkEventQtSlotConnect` for responsive applications.
+   * Efficient linking of graphical resources (icons, etc.) with the executable
+     using CMake's `qt5_add_resources` command.
+   * Streamlined post-build resource copying using CMake's `add_custom_command`
+     for a user-friendly experience (system-agnostic).
+
+   **Current Limitations:**
+   * Keyboard shortcuts are not yet implemented.
+
+   **Screenshots:**
+   ![Main Window](./screenshots/screenshot001.png)
+   ![Main Window with Rotated Camera](./screenshots/screenshot002.png)
+   ![Main Window Going Through Menu](./screenshots/screenshot003.png)
+   ![Main Window About Dialog](./screenshots/screenshot004.png)
+
+1. **all**: Build all abovementioned targets.
 
 ## Additional Notes
 
