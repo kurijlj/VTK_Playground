@@ -44,6 +44,7 @@
 #include <QPointer>
 #include <QMainWindow>
 #include <QVTKOpenGLNativeWidget.h>
+#include <vtkEventQtSlotConnect.h>
 
 
 // Forward Qt class declarations
@@ -71,8 +72,10 @@ class Ui_MainWindow;
 // - None
 //
 // Slots:
-// - slotExit: Exits the application
+// - dispatchRendererEvent: Registers the VTK events from the renderer object
+// - statusMessage: Updates a status message in the status bar
 // - Render: Renders the VTK scene
+// - close: Exits the application
 //
 // Example usage:
 //   QSurfaceFormat::setDefaultFormat(QVTKOpenGLNativeWidget::defaultFormat());
@@ -90,10 +93,20 @@ public:
     MainWindow(int argc, char* argv[]);
     ~MainWindow() override {}
 
+private Q_SLOTS:
+        virtual void dispatchRendererEvent(
+            vtkObject* caller,
+            unsigned long vtk_event,
+            void* client_data
+            );  // Registers the VTK end event
+        virtual void render();  // Renders the VTK scene
+        virtual void about();  // Displays the about dialog
+        virtual void close();  // Exits the application
+
 public Q_SLOTS:
-    
-        virtual void slotExit();  // Exits the application
-        virtual void Render();  // Renders the VTK scene
+        virtual void statusMessage(
+            const QString& message
+            );  // Displays a status message
 
 protected:
     QPointer<QVTKOpenGLNativeWidget> render_widget; // Holds the VTK renderer
@@ -101,6 +114,7 @@ protected:
 private:
     // Designer form
     Ui_MainWindow* ui;
+    vtkSmartPointer<vtkEventQtSlotConnect> vtk_event_connect;
 };
 
 #endif  // MainWindow_H
