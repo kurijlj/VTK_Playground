@@ -9,7 +9,10 @@ message ("Going through ./src/")
 # QtVTKFramework
 # -----------------------------------------------------------------------------
 
-# Set the source files for the QtVTKFramework target
+# Show message that we are building the QtVTKFramework target
+message (STATUS "Building the `QtVTKFramework` target")
+
+# Set the source files for the `QtVTKFramework` target
 add_executable(QtVTKFramework
     QtVTKFramework.cxx
     MainWindow.cxx
@@ -17,7 +20,7 @@ add_executable(QtVTKFramework
     MainWindow.ui
 )
 
-# Link the QtVTKFramework target with the VTK libraries and the Qt5::Widgets
+# Link the `QtVTKFramework` target with the VTK libraries and the Qt5::Widgets
 # library
 target_link_libraries(QtVTKFramework
   PRIVATE
