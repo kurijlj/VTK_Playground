@@ -92,7 +92,7 @@ installed in the `./bin` of build directory.
    ![Main Window Going Through Menu](./screenshots/screenshot003.png)
    ![Main Window About Dialog](./screenshots/screenshot004.png)
 
-1. **all**: Build all abovementioned targets.
+2. **all**: Build all abovementioned targets.
 
 ## Additional Notes
 
